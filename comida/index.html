@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tacos</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+
+        body {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header {
+            animation: slideIn 1s ease-in-out;
+        }
+
+        #contenido-principal {
+            animation: fadeIn 1s ease-in-out 0.5s;
+        }
+
+
+        a {
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff6600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TAQUERIA EL CHATO</h1>
+        <p>tacos muy buenos y ricos</p>
+    </header>
+
+    <section id="contenido-principal">
+        <h2>LOS MEJORES TACOS DE TODA LA COLONIA</h2>
+        <img src="taco.webp" alt="tacos" width="193">
+        <p>LA MEJOR ESPERIENCIA DE TODOS LOS MUNDOS JSJSJSJ</p>
+        <a href="hola.html">conoce mas</a>
+
+        <p id="fechaCreacion">Fecha de creación: <span id="fecha"></span></p>
+        <p id="antiguedad">Esta página tiene <span id="tiempo"></span> días de antigüedad.</p>
+    </section>
+
+    <script>
+        const fechaCreacion = new Date(2025, 8, 4);
+        const fechaActual = new Date();
+        const diferencia = fechaActual.getTime() - fechaCreacion.getTime();
+        const dias = Math.ceil(diferencia / (1000 * 3600 * 24));
+        document.getElementById("fecha").textContent = fechaCreacion.toLocaleDateString();
+        document.getElementById("tiempo").textContent = dias;
+        document.getElementById("antiguedad").style.animation = "fadeIn 2s ease-in-out";
+    </script>
+
+</body>
+</html>
